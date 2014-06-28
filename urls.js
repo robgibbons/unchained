@@ -1,7 +1,5 @@
 module.exports = {
-    '/': {
-        get: [m.requireLogin, view.auth('home')]
-    },
+    '/': view.auth('home'),
     '/profile/': [m.requireLogin, view.render('profile')],
     '/login/': {
         get: [m.redirectUser, view.render('login')],
