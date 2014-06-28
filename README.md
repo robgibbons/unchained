@@ -1,7 +1,7 @@
 Express... Unchained
 =========
 
-Unchained is a [Node.js](https://github.com/joyent/node) module which abstracts the underlying [Express](https://github.com/visionmedia/express) framework, providing a clear MVC structure for your Node.js projects. Unchained breaks everything into pieces, and maps it all to Express for you. Unchained aims to provide a simple layer of abstraction above Express, and is fully compatible with existing Express modules and middleware.
+Unchained is a [Node.js](https://github.com/joyent/node) module which abstracts the underlying [Express](https://github.com/visionmedia/express) framework, providing a modular MVC structure for your web projects. Unchained breaks everything into pieces, and maps it all to Express for you. Unchained aims to provide a simple layer of abstraction above Express, and is fully compatible with existing Express modules and middleware.
 
 ### How's it work?
 
