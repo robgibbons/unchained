@@ -1,6 +1,5 @@
 Express... Unchained
 =========
-[![NPM](https://nodei.co/npm/unchained.png?downloads=true)](https://nodei.co/npm/unchained/)
 
 Unchained is a [Node.js](https://github.com/joyent/node) module which abstracts the underlying [Express](https://github.com/visionmedia/express) framework, providing a clear MVC structure for your Node.js projects. Unchained breaks everything into pieces, and maps it all to Express for you. Unchained aims to provide a simple layer of abstraction above Express, and is fully compatible with existing Express modules and middleware.
 
@@ -21,7 +20,7 @@ A typical project structure starts out with the following:
 
 ## Getting Started
 
-Get started by requiring Unchained inside your **app.js**. Pass in the root module and app directory to allow Unchained to require the rest of your modules:
+Get started by installing ([npm install unchained](https://www.npmjs.org/package/unchained)) and requiring Unchained inside your **app.js**. Pass in the root module and app directory to allow Unchained to require the rest of your modules:
 
 ```javascript
 // app.js
