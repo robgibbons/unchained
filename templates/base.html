@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>{% block title %}Demo Site{% endblock %}</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<style>
+html, body {;
+    padding: 0;
+    margin: 0;
+}
+</style>
+
+<script src="//code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="//paularmstrong.github.io/swig/js/swig.min.js"></script>
+
+{% block head %}{% endblock %}
+
+</head>
+<body>
+
+{% block body %}
+    <!--script id="tmpl-demoTmpl" class="swig" type="text/template">{% raw %}{% endraw %}</script-->
+{% endblock %}
+
+</body>
+</html>
