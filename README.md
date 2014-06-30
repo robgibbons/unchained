@@ -1,28 +1,25 @@
 Express... Unchained
 =========
 
-As wonderful as the [Express](https://github.com/visionmedia/express) framework already is, many people have voiced concern that it lacks enough structure, especially compared to popular web frameworks like Django. While it's fairly easy to establish a more maintainable project structure, it's may not always be obvious how to get there. 
-
-Unchained is a [Node.js](https://github.com/joyent/node) module which abstracts the underlying Express framework, providing a clear MVC structure for your Node.js projects. Unchained breaks everything into pieces, and maps it all to Express for you. Unchained aims to provide a simple layer of abstraction above Express, and is fully compatible with existing Express modules and middleware.
+Unchained is a [Node.js](https://github.com/joyent/node) module which abstracts the underlying [Express](https://github.com/visionmedia/express) framework, encouraging a clear MVC structure for your Node.js projects. Unchained breaks your app into pieces, and maps it all together for you. Unchained aims to provide a simple layer of abstraction above Express, and should be fully compatible with most existing modules and middleware.
 
 ### How's it work?
 
-Unchained takes care of requiring Express for you, as well as pulling together all of your views, models and middleware. To define a view, model, or middleware function, it's as easy as creating a .js file in the appropriate folder. Routes are defined declaratively with a simple dictionary (object literal) inside urls.js. Template rendering is provided out of the box with [Swig](https://github.com/paularmstrong/swig) ([Django](https://github.com/django/django)-style templates). Control all of your Express app's boilerplate settings inside config.js.
+Unchained takes care of requiring Express for you, as well as pulling together all of your views, models, routes and middleware. To define a view, model, or middleware function, it's as easy as creating a .js file in the appropriate folder. Routes are defined declaratively with a simple dictionary (object literal) inside urls.js. Template rendering is provided out-of-the-box with [Swig](https://github.com/paularmstrong/swig) ([Django](https://github.com/django/django)-style templates). Control all of your Express app's familiar settings inside config.js.
 
-A typical project structure starts out with the following:
+## Getting Started
+
+A typical project starts out with the following structure:
 
     /middleware
     /models
-    /node_modules
     /templates
     /views
     app.js
     config.js
     urls.js
 
-## Getting Started
-
-Get started by installing ([npm install unchained](https://www.npmjs.org/package/unchained)) and requiring Unchained inside your **app.js**. Pass in the root module and app directory to allow Unchained to require the rest of your modules:
+After installing **node** and **npm**, just run **npm install unchained** and require(**unchained**) inside of your **app.js**. Pass in the root module and app directory to allow Unchained to require the rest of your modules:
 
 ```javascript
 // app.js
