@@ -71,11 +71,11 @@ module.exports = {
 
 ### Middleware
 
-There are a few places you can attach middleware: assigned to your views, assigned to your routes, or assigned globally in config.js.
+There are a few places you can assign your middleware, depending on where you prefer to apply it. You can have middleware attached to your views, attached to your routes, or bound directly to Express in config.js (global middleware).
 
 #### Middleware in Views
 
-You can assign middleware directly to your view definitions by wrapping them with an Array, always passing your view object as the last item in the Array. Any number of middleware functions may be passed in this style:
+You can attach middleware directly to your view definitions by wrapping them with an Array, always passing your view object as the last item in the Array. Any number of middleware functions may be passed in this style:
 
 ```javascript
 // views/Profile.js
@@ -135,7 +135,7 @@ module.exports = [m.requireLogin, {
 
 #### Middleware in urls.js
 
-If you prefer, you can assign your middleware wrappers directly in urls.js instead. The Array syntax is the same, with view objects still passed as the last item:
+If you prefer, you can define your middleware by route in urls.js instead. The middleware Array syntax is identical, with view objects passed as the last Array item:
 
 ```javascript
 // urls.js
