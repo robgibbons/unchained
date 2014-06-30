@@ -137,7 +137,7 @@ module.exports = [m.requireLogin, {
 
 #### Middleware in urls.js
 
-If you prefer, you can define your middleware by route in urls.js instead. The middleware Array syntax is identical, with view objects passed as the last Array item:
+If you prefer, you can declare middleware directly in your urls.js instead. The middleware Array syntax is identical, with a view object passed as the last Array item. Taking things a step further, you can define Object-literal views directly in urls.js, avoiding the need for a module:
 
 ```javascript
 // urls.js
@@ -157,9 +157,10 @@ module.exports = {
 ```
 ### Helper methods (Generators)
 
-You might have noticed a few helper methods in urls.js above, namespaced under the view object. The methods **view.auth**, **view.render** and **view.redirect** are actually reusable view generators, or helpers, which take in arguments and return customized views. The /about/ and /profile/ view expressions above are functionally equivalent to **view.auth**.
+You may have noticed a few helper methods in urls.js above, namespaced under the view object. The methods **view.auth**, **view.render** and **view.redirect** are actually reusable view generators, or helpers, which take in arguments and return customized views. You can build up a collection of reusable helpers, avoiding further need to create explicit modules for everything.
 
-Generator methods can leverage middleware, models, and can be defined just like normal modules. You can create them inside **/views**, **/models** and **/middleware**, but I recommend storing helpers together in the **index.js** of their respective folders (I've included a few as an example). You can build up a collection of reusable helpers, avoiding further need to create explicit modules for everything.
+Generator methods can leverage middleware, models, and can be defined just like normal modules. You can create them inside **/views**, **/models** and **/middleware**, but I recommend storing helpers together in the **index.js** of their respective folders (I've included a few as an example). The /about/ and /profile/ view expressions above are functionally equivalent to **view.auth**.
+
 ### Bare-Metal Express
 
 You can easily define global middleware in your urls.js. But you always have the option to configure your Express app directly, within **config.js**. Config.js is a setup function which exposes the Express instance used under the hood of Unchained. 
