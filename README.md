@@ -160,7 +160,7 @@ You might have noticed a few helper methods in urls.js above, attached to the vi
 Generator methods can leverage middleware, models, and can be defined just like normal modules. You can create them inside **/views**, **/models** and **/middleware**, but I recommend storing helpers together in the **index.js** of their respective folders (I've included a few as an example). You can build up a collection of reusable helpers, avoiding further need to create explicit modules for everything.
 ### Bare-Metal Express
 
-You can easily define global middleware in your urls.js. But you always have the option to configure your Express app directly, within **config.js**. Config.js is a callback function which exposes the Express instance used under the hood of Unchained. 
+You can easily define global middleware in your urls.js. But you always have the option to configure your Express app directly, within **config.js**. Config.js is a setup function which exposes the Express instance used under the hood of Unchained. 
 
 
 ```javascript
