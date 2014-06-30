@@ -28,7 +28,7 @@ app = require('unchained')(module, __dirname);
 
 ### Routes
 
-If you're building an app, you might need to define some routes. In your main app directory, create the **urls.js** module. Route definitions are stored here as a simple dictionary (Object-literal), with keys defining routes, and values specifying desired controllers (views):
+If you're building an app, you probably need to define some routes. In your main app directory, create the **urls.js** module. Route definitions are stored here as a simple dictionary (Object-literal), with keys defining routes, and values specifying desired controllers (views):
 
 ```javascript
 // urls.js
