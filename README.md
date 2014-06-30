@@ -71,7 +71,7 @@ module.exports = {
 
 ### Middleware
 
-There are a few places you can assign middleware within your app, depending on how you prefer to apply it. You can have middleware attached to your views, attached to your routes, or bound directly to Express inside config.js (global middleware).
+There are a few places you can choose to assign middleware within your app, depending on how you prefer to attach it. You can have middleware attached to your views, assigned in your routes, or bound directly to Express inside config.js (for global middleware).
 
 #### Middleware in Views
 
