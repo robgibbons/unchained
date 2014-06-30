@@ -53,7 +53,7 @@ module.exports = function (req, res) {
 };
 ```
 
-View definitions can be composed of Functions, Objects or Arrays. The Function-based view above does not specify any specific HTTP method, so by default it matches **all** HTTP methods. You can override the default HTTP method within **config.js**. Or, you can just define your view as an Object-literal. With an Object-literal view, you can specify explicit HTTP methods for a given route:
+View definitions can be composed of Functions, Objects or Arrays (for middleware). The Function-based view above does not specify any specific HTTP method, so by default it matches **all** HTTP methods. You can override the default HTTP method within **config.js**. Or, you can just define your view as an Object-literal. With an Object-literal view, you can specify explicit HTTP methods for a given route:
 
 ```javascript
 // views/Profile.js
