@@ -26,9 +26,9 @@ After installing **node** and **npm**, just run **npm install unchained** and re
 app = require('unchained')(module, __dirname);
 ```
 
-### urls.js
+### Routes
 
-If you're building an app, you might need to define some routes. In your main app directory, create the **urls.js** module. Route definitions are stored here as a simple dictionary (Object-literal), with keys defining routes, and values specifying matched controllers:
+If you're building an app, you might need to define some routes. In your main app directory, create the **urls.js** module. Route definitions are stored here as a simple dictionary (Object-literal), with keys defining routes, and values specifying desired controllers (views):
 
 ```javascript
 // urls.js
@@ -39,11 +39,9 @@ module.exports = {
 };
 ```
 
-### /views, /models, /middleware, oh my
+### Views
 
-All view, model and middleware components are defined as **.js modules** in their assigned folder, with the name of the module specifying the name of the component. Modules are automatically namespaced under the globals **view**, **model** and **m** (for middleware).
-
-### Example: Views
+All views, models and middleware components are defined as **.js** modules in the appropriate folder, with the name of the module specifying the name of the component. Modules are automatically namespaced under the globals **view**, **model** and **m** (for middleware).
 
 To create a new view called **view.Profile**, create a .js file in the **/views** directory named **Profile.js**:
 
@@ -71,7 +69,9 @@ module.exports = {
 };
 ```
 
-### Middleware in Views
+### Middleware
+
+There are two main ways you can define middleware: inside your views, or inside of your routes.
 
 You can assign Route-Specific Middleware directly to your views by wrapping them with an Array, always passing your view object as the last item in the Array. Any number of middleware functions may be passed in this style:
 
@@ -115,7 +115,7 @@ module.exports = {
 }];
 ```
 
-Unchained also allows **nested** Middleware definitions within Object-literal views. Notice the view below, wrapped with a middleware Array, and its POST method wrapped again inside. Middleware nested in this style is executed **outside-in**, so POST requests received by the view will first call requireLogin, then validateInput. GET requests will call only the requireLogin middleware:
+Unchained also allows **nested** middleware definitions within Object-literal views. Notice the view below, wrapped with a middleware Array, and its POST method wrapped again inside. Middleware nested in this style is executed **outside-in**, so POST requests received by the view will first call requireLogin, then validateInput. GET requests will call only the requireLogin middleware:
 
 ```javascript
 // views/Profile.js
@@ -133,7 +133,7 @@ module.exports = [m.requireLogin, {
 
 ### Middleware in urls.js
 
-If you prefer, you can declare your route-specific middleware directly in urls.js. The middleware Array syntax is the same, with view objects passed as the last Array item:
+If you prefer, you can declare the same route-specific middleware directly in urls.js. The middleware Array syntax is the same, with view objects passed as the last Array item:
 
 ```javascript
 // urls.js
