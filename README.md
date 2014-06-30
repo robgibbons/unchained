@@ -5,7 +5,7 @@ Unchained is a [Node.js](https://github.com/joyent/node) module which abstracts 
 
 ### How's it work?
 
-Unchained takes care of requiring Express for you, as well as pulling together all of your views, models, routes and middleware. To define a view, model, or middleware function, it's as easy as creating a .js file in the appropriate folder. Routes are defined declaratively with a simple dictionary (object literal) inside urls.js. Template rendering is provided out-of-the-box with [Swig](https://github.com/paularmstrong/swig) ([Django](https://github.com/django/django)-style templates). Control all of your Express app's familiar settings inside config.js.
+Unchained takes care of requiring Express for you, as well as pulling together all of your views, models, routes and middleware. To define a view, model, or middleware function, it's as easy as creating a **.js** file in the appropriate folder. Routes are defined declaratively with a simple dictionary (object literal) inside urls.js. Template rendering is provided out-of-the-box with [Swig](https://github.com/paularmstrong/swig) ([Django](https://github.com/django/django)-style templates). Control all of your Express app's familiar settings inside config.js.
 
 ## Getting Started
 
