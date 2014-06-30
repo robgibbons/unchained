@@ -19,7 +19,7 @@ A typical project starts out with the following structure:
     config.js
     urls.js
 
-After installing **node** and **npm**, just run **npm install unchained** and require(**unchained**) inside of your **app.js**. Pass in the root module and app directory to allow Unchained to require the rest of your modules:
+After installing **node** and **npm**, just run **npm install unchained** and require unchained inside of your app.js. Pass in the root module and app directory to allow Unchained to require the rest of your modules:
 
 ```javascript
 // app.js
@@ -41,11 +41,11 @@ module.exports = {
 
 ### /views, /models, /middleware, oh my
 
-All view, model and middleware components are defined as .js modules in their assigned folder, with the name of the module specifying the name of the component. Modules are automatically namespaced under the globals **view**, **model** and **m** (for middleware).
+All view, model and middleware components are defined as **.js modules** in their assigned folder, with the name of the module specifying the name of the component. Modules are automatically namespaced under the globals **view**, **model** and **m** (for middleware).
 
-### Views
+### Example: Views
 
-To create a new view called view.Profile, create a .js file in the **/views** directory named Profile.js:
+To create a new view called **view.Profile**, create a .js file in the **/views** directory named **Profile.js**:
 
 ```javascript
 // views/Profile.js
