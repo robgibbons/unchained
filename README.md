@@ -71,11 +71,11 @@ module.exports = {
 
 ### Middleware
 
-There are two main places you can define middleware: inside your views, or inside of your routes.
+There are a few places you can attach middleware: assigned to your views, assigned to your routes, or assigned globally in config.js.
 
 #### Middleware in Views
 
-You can assign Route-Specific Middleware directly to your views by wrapping them with an Array, always passing your view object as the last item in the Array. Any number of middleware functions may be passed in this style:
+You can assign middleware directly to your view definitions by wrapping them with an Array, always passing your view object as the last item in the Array. Any number of middleware functions may be passed in this style:
 
 ```javascript
 // views/Profile.js
@@ -135,15 +135,15 @@ module.exports = [m.requireLogin, {
 
 #### Middleware in urls.js
 
-If you prefer, you can declare the same route-specific middleware directly in urls.js. The middleware Array syntax is the same, with view objects passed as the last Array item:
+If you prefer, you can assign your middleware wrappers directly in urls.js instead. The Array syntax is the same, with view objects still passed as the last item:
 
 ```javascript
 // urls.js
 // Middleware assigned directly in Routes
 module.exports = {
     '/': view.auth('home'),
-    '/about/': [m.requireLogin, view.About],
-    '/profile/': [m.requireLogin, view.Profile],
+    '/about/': [m.requireLogin, view.render('about')],
+    '/profile/': [m.requireLogin, view.render('profile')],
     '/login/': {
         get: [m.redirectUser, view.render('login')],
         post: [m.loginUser, view.redirect('/')],
@@ -153,11 +153,11 @@ module.exports = {
     '*': view.redirect('/error/404/'),
 };
 ```
-#### Generators (Constructors)
+#### Generator methods (Constructors)
 
-You might have noticed a few helper methods in urls.js above, attached to the view object. The methods **view.auth**, **view.render** and **view.redirect** are actually reusable view Generators, which take in arguments and return customized views. The /about and /profile view definitions above are functionally equivalent to **view.auth**.
+You might have noticed a few helper methods in urls.js above, attached to the view object. The methods **view.auth**, **view.render** and **view.redirect** are actually reusable view generators, or helpers, which take in arguments and return customized views. The /about and /profile view definitions above are functionally equivalent to **view.auth**.
 
-Generator methods can leverage middleware, models, and can be created like normal modules. You can define them inside **/views**, **/models** and **/middleware**, but I recommend storing them in the **index.js** of their respective folder.
+Generator methods can leverage middleware, models, and can be defined just like normal modules. You can create them inside **/views**, **/models** and **/middleware**, but I recommend storing these helpers together in the **index.js** of their respective folders. You can build up a collection of reusable generators, avoiding the need to create explicit modules for everything (I've included a few in my example).
 
 ### Bare-Metal Express
 
