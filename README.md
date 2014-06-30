@@ -19,7 +19,7 @@ A typical project starts out with the following structure:
     config.js
     urls.js
 
-After installing **node** and **npm**, simply run **npm install unchained** and require unchained inside of your **app.js**. Pass in the root module and app directory to allow Unchained to require the rest of your modules:
+After installing **node** and **npm**, simply run **npm install unchained** and require unchained inside of your **app.js**. Pass in the root module and directory to allow Unchained to require the rest of your modules:
 
 ```javascript
 // app.js
