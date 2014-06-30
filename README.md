@@ -75,7 +75,7 @@ There are a few places you can assign middleware within your app, depending on h
 
 #### Middleware in Views
 
-You can attach middleware directly to your view definitions by wrapping them with an **Array literal**, always passing your view object as the last item in the Array. Any number of middleware functions may be passed in this style:
+You can assign middleware directly to your view definitions by wrapping them with an **Array literal**, always passing your view object as the last item in the stack. Any number of middleware functions may be passed in this Array style:
 
 ```javascript
 // views/Profile.js
