@@ -71,7 +71,9 @@ module.exports = {
 
 ### Middleware
 
-There are two main ways you can define middleware: inside your views, or inside of your routes.
+There are two main places you can define middleware: inside your views, or inside of your routes.
+
+#### Middleware in Views
 
 You can assign Route-Specific Middleware directly to your views by wrapping them with an Array, always passing your view object as the last item in the Array. Any number of middleware functions may be passed in this style:
 
@@ -131,7 +133,7 @@ module.exports = [m.requireLogin, {
 }];
 ```
 
-### Middleware in urls.js
+#### Middleware in urls.js
 
 If you prefer, you can declare the same route-specific middleware directly in urls.js. The middleware Array syntax is the same, with view objects passed as the last Array item:
 
@@ -151,14 +153,15 @@ module.exports = {
     '*': view.redirect('/error/404/'),
 };
 ```
+#### Generators (Constructors)
 
-You might have noticed a few helper methods above, attached to the view object. The methods **view.auth**, **view.render** and **view.redirect** are actually reusable view Generators, which take in arguments and return customized views. The /about and /profile view definitions above are functionally equivalent to **view.auth**.
+You might have noticed a few helper methods in urls.js above, attached to the view object. The methods **view.auth**, **view.render** and **view.redirect** are actually reusable view Generators, which take in arguments and return customized views. The /about and /profile view definitions above are functionally equivalent to **view.auth**.
 
 Generator methods can leverage middleware, models, and can be created like normal modules. You can define them inside **/views**, **/models** and **/middleware**, but I recommend storing them in the **index.js** of their respective folder.
 
-### Global Middleware & Bare-Metal Express
+### Bare-Metal Express
 
-You can easily apply urls.js to declare your "global" middleware. But you also have the option to configure your Express app directly, within **config.js**:
+You can easily define global middleware in your urls.js. Or you have the option to configure your Express app directly, within **config.js**. Config.js is composed of a callback function which exposes the Express instance used inside of unchained. 
 
 
 ```javascript
@@ -166,22 +169,25 @@ You can easily apply urls.js to declare your "global" middleware. But you also h
 // Configuring global middleware and other Express options
 module.exports = function (app) {
 
-    app.set('listen_port', 8080);
-    app.set('default_method', 'get'); // Default HTTP method for basic view Functions
+    app.set('listen_port', 8080); // Defau;t listening port (8080)
+    app.set('default_method', 'all'); // Default HTTP verb for Function-based views (all)
     app.set('view engine', 'html');
-    app.set('views', app.get('root_dir') + '/templates');
-    app.engine('html', swig.renderFile);
+    app.set('views', app.get('root_dir') + '/templates'); // HTML template directory
+    app.engine('html', swig.renderFile); // Easy to use another rendering engine
     app.enable('strict routing');
     app.use(m.addSlashes());
     app.use(express.urlencoded());
     app.use(express.json());
     app.use(express.logger());
     app.use(express.cookieParser());
-    app.use(express.methodOverride());
     app.use(express.session({ secret: '.PLEASE_CHANGE-ME*1a2b3c4d5e6f7g8h9i0j!' }));
+    
+    // Passport-local example
     app.use(passport.initialize());
     app.use(passport.session());
 
     return app;
 };
 ```
+
+
