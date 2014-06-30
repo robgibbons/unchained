@@ -153,7 +153,7 @@ module.exports = {
     '*': view.redirect('/error/404/'),
 };
 ```
-#### Helper methods (Generators)
+### Helper methods (Generators)
 
 You might have noticed a few helper methods in urls.js above, attached to the view object. The methods **view.auth**, **view.render** and **view.redirect** are actually reusable view generators, or helpers, which take in arguments and return customized views. The /about and /profile view definitions above are functionally equivalent to **view.auth**.
 
