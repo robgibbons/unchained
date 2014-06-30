@@ -157,7 +157,7 @@ module.exports = {
 
 You might have noticed a few helper methods in urls.js above, attached to the view object. The methods **view.auth**, **view.render** and **view.redirect** are actually reusable view generators, or helpers, which take in arguments and return customized views. The /about and /profile view definitions above are functionally equivalent to **view.auth**.
 
-Generator methods can leverage middleware, models, and can be defined just like normal modules. You can create them inside **/views**, **/models** and **/middleware**, but I recommend storing these helpers together in the **index.js** of their respective folders. You can build up a collection of reusable generators, avoiding the need to create explicit modules for everything (I've included a few in my example).
+Generator methods can leverage middleware, models, and can be defined just like normal modules. You can create them inside **/views**, **/models** and **/middleware**, but I recommend storing helpers together in the **index.js** of their respective folders. You can build up a collection of reusable helpers, avoiding further need to create explicit modules for everything (I've included a few helpers in my example).
 
 ### Bare-Metal Express
 
