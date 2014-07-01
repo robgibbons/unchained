@@ -1,7 +1,7 @@
 Unchained
 =========
 
-Unchained extends and abstracts the underlying [Express](https://github.com/visionmedia/express) framework, encouraging a clear MVC structure for your [Node.js](https://github.com/joyent/node) projects. Unchained breaks your app into pieces, and maps it all together for you. Unchained aims to provide a lightweight layer of syntax sugar above Express, and should be fully compatible with most existing modules and middleware.
+Unchained extends and abstracts the [Express](https://github.com/visionmedia/express) framework, providing a clear, modular MVC structure for your [Node.js](https://github.com/joyent/node) web projects. Unchained breaks your app into pieces, and maps it all together for you. Unchained aims to provide a lightweight layer of syntax sugar above Express, and should be fully compatible with most existing modules and middleware.
 
 ### How's it work?
 
