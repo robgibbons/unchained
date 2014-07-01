@@ -1,5 +1,6 @@
 module.exports = function (app) {
 
+    // All your config are belong to Express
     app.engine('html', swig.renderFile);
     app.enable('strict routing');
     app.set('listen_port', 80);
