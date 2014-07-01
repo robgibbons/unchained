@@ -171,7 +171,7 @@ You can easily define global middleware in your urls.js. But you always have the
 // Configuring global middleware and other Express options
 module.exports = function (app) {
 
-    app.set('listen_port', 8080); // Defau;t listening port (8080)
+    app.set('listen_port', 8080); // Default listening port (8080)
     app.set('default_method', 'all'); // Default HTTP verb for Function-based views (all)
     app.set('view engine', 'html');
     app.set('views', app.get('root_dir') + '/templates'); // HTML template directory
