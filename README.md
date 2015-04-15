@@ -1,11 +1,11 @@
 Unchained
 =========
 
-Unchained extends and abstracts the [Express](https://github.com/visionmedia/express) framework, providing a clear, modular MVC structure for your [Node.js](https://github.com/joyent/node) web projects. Unchained breaks your app into pieces, and maps it all together for you. Unchained aims to provide a lightweight layer of syntax sugar above Express, and should be fully compatible with most existing modules and middleware.
+Unchained abstracts the [Express](https://github.com/visionmedia/express) framework, providing a modular MVC-style structure for your [Node.js](https://github.com/joyent/node) projects. Unchained aims to provide a lightweight layer of syntax sugar above Express, and should be fully compatible with most existing modules and middleware.
 
 ### How's it work?
 
-Unchained takes care of requiring Express for you, as well as pulling together all of your views, models, routes and middleware. To define a view, model, or middleware function, it's as easy as creating a **.js** file in the appropriate folder. Routes are defined declaratively with a simple dictionary (object literal) inside urls.js. Template rendering is provided out-of-the-box with [Swig](https://github.com/paularmstrong/swig) ([Django](https://github.com/django/django)-style templates). Control all of your Express app's familiar settings inside config.js.
+Unchained requires Express for you, as well as your views, models, routes and middleware. Defining a view, model, or middleware function is a simple **.js** file in the appropriate folder. Routes are defined declaratively with a simple dictionary in urls.js. Template rendering is provided by [Swig](https://github.com/paularmstrong/swig) ([Django](https://github.com/django/django)-style templates). Control your Express app's familiar settings in config.js.
 
 ## Getting Started
 
@@ -19,7 +19,7 @@ A typical project starts out with the following structure:
     config.js
     urls.js
 
-After installing **node** and **npm**, simply run **npm install unchained** and require unchained inside of your **app.js**. Pass in the root module and directory to allow Unchained to require the rest of your modules:
+Simply run **npm install unchained**, and require unchained in your **app.js**. Pass the root module and directory and Unchained will require the rest of your modules:
 
 ```javascript
 // app.js
@@ -28,7 +28,7 @@ app = require('unchained')(module, __dirname);
 
 ### Routes
 
-If you're building an app, you probably need to define some routes. In your main app directory, create the **urls.js** module. Route definitions are stored here as a simple dictionary (Object-literal), with keys defining routes, and values specifying desired controllers (views):
+In your main app directory, create the **urls.js** module. Route definitions are stored here as a simple dictionary (Object-literal), with keys defining routes, and values specifying desired controllers (views):
 
 ```javascript
 // urls.js
