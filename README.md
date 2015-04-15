@@ -1,7 +1,7 @@
 Unchained
 =========
 
-Unchained abstracts the [Express](https://github.com/visionmedia/express) framework, providing a modular MVC-style structure for your [Node.js](https://github.com/joyent/node) projects. Unchained aims to provide a lightweight layer of syntax sugar above Express, and should be fully compatible with most existing modules and middleware.
+Unchained abstracts the [Express](https://github.com/visionmedia/express) framework, providing a modular MVC-style structure for your [Node.js](https://github.com/joyent/node) projects. Aiming only to provide a lightweight layer of syntax sugar above Express, it should be fully compatible with existing Express modules and middleware.
 
 ### How's it work?
 
@@ -165,8 +165,7 @@ Generator methods can leverage middleware, models, and can be defined just like 
 
 ### Bare-Metal Express
 
-You can easily define global middleware in your urls.js. But you always have the option to configure your Express app directly, within **config.js**. Config.js is a setup function which exposes the Express instance used under the hood of Unchained. 
-
+Configure your Express app directly, within **config.js**. Config.js exposes the Express app instance used "under the hood" by Unchained. 
 
 ```javascript
 // config.js
