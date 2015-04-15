@@ -75,7 +75,7 @@ module.exports = {
 
 There are a few places you can choose to assign middleware within your app. You can have middleware attached to your views, attached to your routes, or bound directly to Express inside config.js (for global middleware).
 
-#### Middleware in Views
+#### Wrapping Views
 
 You can assign middleware directly to your view definitions by wrapping them with an **Array literal**, always passing your view object as the last item in the stack. Any number of middleware functions may be passed in this Array style:
 
@@ -116,10 +116,10 @@ module.exports = {
         // Do something with POST request
         res.render('profile');
     }]
-}];
+};
 ```
 
-Unchained also allows **nested** middleware definitions within Object-literal views. Notice the view below, wrapped with a middleware Array, and its POST method wrapped again inside. Middleware nested in this style is executed **outside-in**, so POST requests received by the view will first call requireLogin, then validateInput. GET requests will call only the requireLogin middleware:
+You can even use **nested** middleware definitions within Object-literal views:
 
 ```javascript
 // views/Profile.js
@@ -135,9 +135,11 @@ module.exports = [m.requireLogin, {
 }];
 ```
 
-#### Middleware in urls.js
+Middleware nested in this style is executed **outside-in**, so POST requests received by the view will first call requireLogin, then validateInput. Any GET requests would call only the outer requireLogin middleware.
 
-If you prefer, you can declare middleware directly in your urls.js instead. The middleware Array syntax is identical, with a view object passed as the last Array item. Taking things a step further, you can define Object-literal views directly in urls.js, avoiding the need for a module:
+#### Middleware/View Expressions in urls.js
+
+Entire view definitions may be expressed directly in urls.js. This allows you to express middleware and views without creating more modules. Middleware Array syntax is identical, with a view object passed as the last Array item.
 
 ```javascript
 // urls.js
