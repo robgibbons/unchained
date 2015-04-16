@@ -1,6 +1,8 @@
 Unchained
 =========
 
+### ([npm install unchained](https://www.npmjs.com/package/unchained))
+
 Unchained abstracts the [Express](https://github.com/visionmedia/express) framework, providing a modular MVC-style structure for your [Node.js](https://github.com/joyent/node) projects. Aiming only to provide a lightweight layer of syntax sugar above Express, it should be fully compatible with existing Express modules and middleware.
 
 ### How's it work?
